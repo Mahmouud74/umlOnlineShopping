@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>CRUD</title>
+		<link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
+		<link rel="stylesheet" href="style/products.css" />
+        <link rel="stylesheet" type="text/css" href="style/style.css">
+        <link rel="stylesheet" type="text/css" href="style/shopping.css">
+
+
+	</head>
+	<body>
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+			<div class="container">
+			  <a class="navbar-brand" href="/index.html">Online Shopping</a>
+			  <button
+				class="navbar-toggler"
+				type="button"
+				data-bs-toggle="collapse"
+				data-bs-target="#navbarSupportedContent"
+				aria-controls="navbarSupportedContent"
+				aria-expanded="false"
+				aria-label="Toggle navigation"
+			  >
+				<span class="navbar-toggler-icon"></span>
+			  </button>
+			  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+				  <li class="nav-item">
+					<a class="nav-link active" aria-current="page" href="index.html">Home</a>
+				  </li>
+				  <li class="nav-item">
+					<a class="nav-link active" aria-current="page" href="cart.html">Cart</a>
+				  </li>
+				  <li class="nav-item">
+					<a class="nav-link active" aria-current="page" href="../login.html">Logout</a>
+				  </li>
+				</ul>
+			  </div>
+			</div>
+		  </nav>
+		<div class="container">
+                <div class="tabs">
+
+			<div class="row">
+				<div class="table">
+					<table class="table table-hover" id="detailsTable">
+						<thead><th>Name</th><th>Quantity</th><th>Piece Price</th><th>total Price</th>
+							<th>Action</th> <th>edit</th></thead>
+
+						<tbody id="tbody">
+							
+						</tbody>
+					</table>
+				</div>
+				<div class="btns d-flex justify-content-center">
+					<button class="btn btn-primary" id="addOrder">Add Order</button>
+					<button class="btn btn-primary" id="deleteCart">Delete All Cart</button>
+				</div>
+			</div>
+		</div>
+
+		
+
+		<!-- Edit Product -->
+
+		<div class="edit overlay">
+			<div class="edit-content col-md-8 col-sm-10 col-lg-8">
+				<h2 class="text-center">Edit</h2>
+				<form name="editForm" id="editForm" action="#">
+					<div class="form-group">
+						<label for="name">Name :</label>
+						<input type="text" name="name" id="edit-name" value="" class="form-control" placeholder="Name" readonly>
+					</div>
+					<div class="form-group">
+						<label for="name">Price :</label>
+						<input type="number" name="price" id="edit-price" value="" class="form-control" min="0" placeholder="Price">
+						<input type="hidden" name="id">
+					</div>
+					<input type="button" value="Save" onclick="editSave()" class="btn btn-primary">
+					<input type="button" value="Cancel" onclick="editCancel()" class="btn btn-primary">
+				</form>
+			</div>
+		</div>
+
+		<!-- Add Product -->
+
+		<div class="add overlay">
+			<div class="add-content col-md-8 col-sm-10 col-lg-8">
+				<h2 class="text-center">Add</h2>
+				<form name="addForm" id="addForm" action="#">
+					<div class="form-group">
+						<label for="name">Name :</label>
+						<input type="text" name="name" id="add-name" value="" class="form-control" placeholder="Name" required>
+					</div>
+					<div class="form-group">
+						<label for="name">Price :</label>
+						<input type="number" name="price" id="add-price" value="" class="form-control" min="0" placeholder="Price" required>
+					</div>
+					<input type="button" value="Save" onclick="addSave()" class="btn btn-primary">
+					<input type="button" value="Cancel" onclick="addCancel()" class="btn btn-primary">
+				</form>
+			</div>
+		</div>
+
+        <!-------------------edite order------------------>
+        <!-- Modal -->
+<div class="modal fade modal-xl" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+
+        <div class="modal-body row p-2 justify-content-around">
+          
+                <div class="col-4 mx-1">ProductName:</div>
+                <div class="col-4 "><input type="number" class="w-75"></div>
+               
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+        </div>
+    </div>
+</div>
+		<!-- <script>
+           document.getElementsByClassName("modal-body")[0].innerHTML = `
+           hello
+           `
+        </script> -->
+		<script src="../../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+		<script src="../../library.js"></script>
+		<script src="../../user.js"></script>
+		<script src="scripts/cart.js"></script>
+	</body>
+</html>
